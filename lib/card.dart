@@ -56,3 +56,54 @@ class TimeCard extends StatelessWidget {
     );
   }
 }
+
+class StateCard extends StatelessWidget {
+  const StateCard({
+    Key? key,
+    required this.icons,
+    required this.title,
+  }) : super(key: key);
+
+  final IconData icons;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 95,
+      width: 95,
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        color: kTextSecondary,
+        borderRadius: BorderRadius.circular(20),
+
+        // ignore: prefer_const_literals_to_create_immutables
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xFF073738),
+            blurRadius: 10,
+            offset: Offset(2, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icons,
+            color: kTextPrimary,
+            size: 40,
+          ),
+          SizedBox(height: 5),
+          Text(
+            title,
+            style: TextStyle(
+              color: kTextPrimary,
+              fontSize: 16,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
